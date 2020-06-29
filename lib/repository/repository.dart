@@ -18,57 +18,79 @@ class MovieRepository {
   Future<MovieResponse> getMovies() async {
     var params = {"api_key": apiKey, "language": en_US, "page": 1};
     try {
-      Response response =
-          await _dio.get(getPopularUrl, queryParameters: params);
+      var response = await _dio.get(getPopularUrl, queryParameters: params);
+      print("####getMovies####");
+
+      print(response);
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception in Repo : $error stackTrace : $stacktrace");
       return MovieResponse.withError(error);
     }
   }
+
   Future<MovieResponse> getPlayingMovies() async {
     var params = {"api_key": apiKey, "language": en_US, "page": 1};
     try {
       Response response =
           await _dio.get(getPlayingUrl, queryParameters: params);
+      print("####getPlayingMovies####");
+
+      print(response);
+
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception in Repo : $error stackTrace : $stacktrace");
-      return MovieResponse.withError(error);
+      return MovieResponse.withError(error.toString());
     }
   }
+
   Future<GenreResponse> getGenres() async {
     var params = {"api_key": apiKey, "language": en_US, "page": 1};
     try {
-      Response response =
-          await _dio.get(getGenreUrl, queryParameters: params);
+      Response response = await _dio.get(getGenreUrl, queryParameters: params);
+      print("####getGenres####");
+
+      print(response);
+
       return GenreResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception in Repo : $error stackTrace : $stacktrace");
       return GenreResponse.withError(error);
     }
   }
+
   Future<Person> getPersons() async {
     var params = {"api_key": apiKey};
     try {
-      Response response =
-          await _dio.get(getpersonUrl, queryParameters: params);
+      Response response = await _dio.get(getpersonUrl, queryParameters: params);
+      print("####getPersons####");
+
+      print(response);
+
       return Person.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception in Repo : $error stackTrace : $stacktrace");
       return Person.withError(error);
     }
   }
+
   Future<MovieResponse> getMoviesByGenre(int id) async {
-    var params = {"api_key": apiKey, "language": en_US, "page": 1,"with_genres":id};
+    var params = {
+      "api_key": apiKey,
+      "language": en_US,
+      "page": 1,
+      "with_genres": id
+    };
     try {
-      Response response =
-          await _dio.get(getpersonUrl, queryParameters: params);
+      Response response = await _dio.get(getpersonUrl, queryParameters: params);
+      print("####getMoviesByGenre####");
+      print(response);
+
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception in Repo : $error stackTrace : $stacktrace");
       return MovieResponse.withError(error);
     }
   }
-  
 }

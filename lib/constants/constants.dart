@@ -12,7 +12,7 @@ class Constants {
   static const String loadingText = "Loading...";
   static const String tryagainText = "try again";
   static const String signInText = "Sign In";
-  static const String someErrorText = "Some error";
+  static const String someErrorText = "error accured";
   static const String signInWithGoogleText = 'Sign in with Google';
   static const String somethingWentWrongText = "Some thing went wrong";
   static const String signOutText = "Sign out";
@@ -23,22 +23,14 @@ class Constants {
   static const String updateNowText = "Update Now";
   static const String checkNetText = "Check Internet";
 
-  static const String agendaText = "Agenda";
-  static const String speakerText = "Speakers";
-  static const String teamText = "Team";
-  static const String sponserText = "Sponser";
-  static const String faqText = "Faq";
-  static const String mapText = "Locate Us";
+  static const String imgUrl = "https://image.tmdb.org/t/p/original/";
+
 
   static const int app_version_code = 1;
   static const String app_color = "ffd7167";
   static Color primaryAppColor = Colors.white;
   static Color secondryAppColor = Colors.black;
   static bool isDebugMode = true;
-
-  ///images
-  static const String banner_light = "assets/images/banner_light.png";
-  static const String banner_dark = "assets/images/banner_dark.png";
 
   /// Preferences
   static SharedPreferences perfs;

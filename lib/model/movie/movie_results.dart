@@ -3,14 +3,14 @@ class MovieResults {
   int _id;
   String _name;
   int _voteCount;
-  double _voteAverage;
+  var _voteAverage;
   String _firstAirDate;
   String _posterPath;
   List<int> _genreIds;
   String _originalLanguage;
   String _backdropPath;
   String _overview;
-  List<String> _originCountry;
+  //List<String> _originCountry;
   double _popularity;
   String _mediaType;
   bool _video;
@@ -24,14 +24,14 @@ class MovieResults {
       int id,
       String name,
       int voteCount,
-      double voteAverage,
+      var voteAverage,
       String firstAirDate,
       String posterPath,
       List<int> genreIds,
       String originalLanguage,
       String backdropPath,
       String overview,
-      List<String> originCountry,
+      //List<String> originCountry,
       double popularity,
       String mediaType,
       bool video,
@@ -50,7 +50,7 @@ class MovieResults {
     this._originalLanguage = originalLanguage;
     this._backdropPath = backdropPath;
     this._overview = overview;
-    this._originCountry = originCountry;
+    //this._originCountry = originCountry;
     this._popularity = popularity;
     this._mediaType = mediaType;
     this._video = video;
@@ -68,8 +68,8 @@ class MovieResults {
   set name(String name) => _name = name;
   int get voteCount => _voteCount;
   set voteCount(int voteCount) => _voteCount = voteCount;
-  double get voteAverage => _voteAverage;
-  set voteAverage(double voteAverage) => _voteAverage = voteAverage;
+  dynamic get voteAverage => _voteAverage;
+  set voteAverage(var voteAverage) => _voteAverage = voteAverage;
   String get firstAirDate => _firstAirDate;
   set firstAirDate(String firstAirDate) => _firstAirDate = firstAirDate;
   String get posterPath => _posterPath;
@@ -83,9 +83,9 @@ class MovieResults {
   set backdropPath(String backdropPath) => _backdropPath = backdropPath;
   String get overview => _overview;
   set overview(String overview) => _overview = overview;
-  List<String> get originCountry => _originCountry;
-  set originCountry(List<String> originCountry) =>
-      _originCountry = originCountry;
+  // List<String> get originCountry => _originCountry;
+  // set originCountry(List<String> originCountry) =>
+  //    _originCountry = originCountry;
   double get popularity => _popularity;
   set popularity(double popularity) => _popularity = popularity;
   String get mediaType => _mediaType;
@@ -113,7 +113,7 @@ class MovieResults {
     _originalLanguage = json['original_language'];
     _backdropPath = json['backdrop_path'];
     _overview = json['overview'];
-    _originCountry = json['origin_country'].cast<String>();
+    // _originCountry = json['origin_country'].cast<String>();
     _popularity = json['popularity'];
     _mediaType = json['media_type'];
     _video = json['video'];
@@ -136,7 +136,7 @@ class MovieResults {
     data['original_language'] = this._originalLanguage;
     data['backdrop_path'] = this._backdropPath;
     data['overview'] = this._overview;
-    data['origin_country'] = this._originCountry;
+    //data['origin_country'] = this._originCountry;
     data['popularity'] = this._popularity;
     data['media_type'] = this._mediaType;
     data['video'] = this._video;
