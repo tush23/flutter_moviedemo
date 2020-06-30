@@ -12,14 +12,12 @@ class GenreMovies extends StatefulWidget {
   final int genreId;
 
   const GenreMovies({Key key, this.genreId}) : super(key: key);
-
   @override
   _GenreMoviesState createState() => _GenreMoviesState(genreId);
 }
 
 class _GenreMoviesState extends State<GenreMovies> {
   final int genreId;
-
   _GenreMoviesState(this.genreId);
 
   @override
@@ -96,88 +94,88 @@ class _GenreMoviesState extends State<GenreMovies> {
         itemCount: movies.length,
         itemBuilder: (context, index) {
           return Padding(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-              movies[index].posterPath == null
-                  ? Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                movies[index].posterPath == null
+                    ? Container(
                   width: 150,
                   height: 180,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       shape: BoxShape.rectangle),
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            Icon(
-                              EvaIcons.filmOutline,
-                              size: 40,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )ration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              shape: BoxShape.rectangle,
-              image: DecorationImage(
-                  image: CachedNetworkImageProvider(
-                    Constants.imgUrlWidth200 +
-                        movies[index].posterPath,
+                  child: Column(
+                    children: <Widget>[
+                      Icon(
+                        EvaIcons.filmOutline,
+                        size: 40,
+                      ),
+                    ],
                   ),
-                  fit: BoxFit.cover)),
-          ),
-          SizedBox(
-          height: 6,
-          ),
-          Container(
-          alignment: Alignment.center,
-          width: 120,
-          child: Text(
-          movies[index].title,
-          style: TextStyle(
-          fontWeight: FontWeight.bold, fontSize: 12),
-          maxLines: 1,
-          ),
-          ),
-          SizedBox(
-          height: 5,
-          ),
-          Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-          //Text(movies[index].voteAverage.toString()),
-          SizedBox(
-          width: 30,
-          ),
-          RatingBar(
-          onRatingUpdate: (rating) => print(rating),
-          itemSize: 10.0,
-          initialRating: movies[index].voteAverage / 3,
-          minRating: 1,
-          direction: Axis.horizontal,
-          allowHalfRating: true,
-          itemCount: 5,
-          glow: true,
-          unratedColor: ConfigerBloc().darkModeOn
-          ? Colors.black87
-              : Colors.grey,
-          itemPadding: EdgeInsets.symmetric(horizontal: 1),
-          itemBuilder: (context, _) => Icon(
-          EvaIcons.star,
-          color: ConfigerBloc().darkModeOn
-          ? Colors.white
-              : Colors.black,
-          ),
-          )
-          ],
-          )
-          ],
-          ),
+                )
+                    : Container(
+                  width: 120,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      shape: BoxShape.rectangle,
+                      image: DecorationImage(
+                          image: CachedNetworkImageProvider(
+                            Constants.imgUrlWidth200 +
+                                movies[index].posterPath,
+                          ),
+                          fit: BoxFit.cover)),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  width: 120,
+                  child: Text(
+                    movies[index].title,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 12),
+                    maxLines: 1,
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    //Text(movies[index].voteAverage.toString()),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    RatingBar(
+                      onRatingUpdate: (rating) => print(rating),
+                      itemSize: 10.0,
+                      initialRating: movies[index].voteAverage / 3,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      glow: true,
+                      unratedColor: ConfigerBloc().darkModeOn
+                          ? Colors.black87
+                          : Colors.grey,
+                      itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                      itemBuilder: (context, _) =>
+                          Icon(
+                            EvaIcons.star,
+                            color: ConfigerBloc().darkModeOn
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                    )
+                  ],
+                )
+              ],
+            ),
           );
         },
       ),
