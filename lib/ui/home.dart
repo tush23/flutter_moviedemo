@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_moviedemo/constants/constants.dart';
+import 'package:flutter_moviedemo/ui/main/genres.dart';
 import 'package:flutter_moviedemo/ui/main/now_playing.dart';
 import 'package:flutter_moviedemo/ui/required/custom_scafold.dart';
 
@@ -16,9 +17,7 @@ class _HomeState extends State<Home> {
     return CustomScaffold(
       title: Constants.app_name,
       body: ListView(
-        children: <Widget>[
-          NowPlaying()
-        ],
+        children: <Widget>[NowPlaying(), GenresScreen()],
       ),
     );
   }

@@ -4,16 +4,19 @@ class MovieResults {
   String _name;
   int _voteCount;
   var _voteAverage;
-  String _firstAirDate;
+
+  //String _firstAirDate;
   String _posterPath;
-  List<int> _genreIds;
+
+  //List<int> _genreIds;
   String _originalLanguage;
   String _backdropPath;
   String _overview;
   //List<String> _originCountry;
   double _popularity;
-  String _mediaType;
-  bool _video;
+
+  //String _mediaType;
+  //bool _video;
   String _title;
   String _releaseDate;
   String _originalTitle;
@@ -25,16 +28,16 @@ class MovieResults {
       String name,
       int voteCount,
       var voteAverage,
-      String firstAirDate,
+        //String firstAirDate,
       String posterPath,
-      List<int> genreIds,
+        //List<int> genreIds,
       String originalLanguage,
       String backdropPath,
       String overview,
       //List<String> originCountry,
       double popularity,
-      String mediaType,
-      bool video,
+        //String mediaType,
+        //bool video,
       String title,
       String releaseDate,
       String originalTitle,
@@ -44,16 +47,16 @@ class MovieResults {
     this._name = name;
     this._voteCount = voteCount;
     this._voteAverage = voteAverage;
-    this._firstAirDate = firstAirDate;
+    //this._firstAirDate = firstAirDate;
     this._posterPath = posterPath;
-    this._genreIds = genreIds;
+    //this._genreIds = genreIds;
     this._originalLanguage = originalLanguage;
     this._backdropPath = backdropPath;
     this._overview = overview;
     //this._originCountry = originCountry;
     this._popularity = popularity;
-    this._mediaType = mediaType;
-    this._video = video;
+    //this._mediaType = mediaType;
+    //this._video = video;
     this._title = title;
     this._releaseDate = releaseDate;
     this._originalTitle = originalTitle;
@@ -70,12 +73,14 @@ class MovieResults {
   set voteCount(int voteCount) => _voteCount = voteCount;
   dynamic get voteAverage => _voteAverage;
   set voteAverage(var voteAverage) => _voteAverage = voteAverage;
-  String get firstAirDate => _firstAirDate;
-  set firstAirDate(String firstAirDate) => _firstAirDate = firstAirDate;
+
+  // String get firstAirDate => _firstAirDate;
+  // set firstAirDate(String firstAirDate) => _firstAirDate = firstAirDate;
   String get posterPath => _posterPath;
   set posterPath(String posterPath) => _posterPath = posterPath;
-  List<int> get genreIds => _genreIds;
-  set genreIds(List<int> genreIds) => _genreIds = genreIds;
+
+  // List<int> get genreIds => _genreIds;
+  // set genreIds(List<int> genreIds) => _genreIds = genreIds;
   String get originalLanguage => _originalLanguage;
   set originalLanguage(String originalLanguage) =>
       _originalLanguage = originalLanguage;
@@ -88,10 +93,11 @@ class MovieResults {
   //    _originCountry = originCountry;
   double get popularity => _popularity;
   set popularity(double popularity) => _popularity = popularity;
-  String get mediaType => _mediaType;
-  set mediaType(String mediaType) => _mediaType = mediaType;
-  bool get video => _video;
-  set video(bool video) => _video = video;
+
+  // String get mediaType => _mediaType;
+  // set mediaType(String mediaType) => _mediaType = mediaType;
+  // bool get video => _video;
+  // set video(bool video) => _video = video;
   String get title => _title;
   set title(String title) => _title = title;
   String get releaseDate => _releaseDate;
@@ -107,16 +113,16 @@ class MovieResults {
     _name = json['name'];
     _voteCount = json['vote_count'];
     _voteAverage = json['vote_average'];
-    _firstAirDate = json['first_air_date'];
+    //_firstAirDate = json['first_air_date'];
     _posterPath = json['poster_path'];
-    _genreIds = json['genre_ids'].cast<int>();
+    //_genreIds = json['genre_ids'].cast<int>();
     _originalLanguage = json['original_language'];
     _backdropPath = json['backdrop_path'];
     _overview = json['overview'];
     // _originCountry = json['origin_country'].cast<String>();
     _popularity = json['popularity'];
-    _mediaType = json['media_type'];
-    _video = json['video'];
+    //_mediaType = json['media_type'];
+    //_video = json['video'];
     _title = json['title'];
     _releaseDate = json['release_date'];
     _originalTitle = json['original_title'];
@@ -130,16 +136,16 @@ class MovieResults {
     data['name'] = this._name;
     data['vote_count'] = this._voteCount;
     data['vote_average'] = this._voteAverage;
-    data['first_air_date'] = this._firstAirDate;
+    //data['first_air_date'] = this._firstAirDate;
     data['poster_path'] = this._posterPath;
-    data['genre_ids'] = this._genreIds;
+    //data['genre_ids'] = this._genreIds;
     data['original_language'] = this._originalLanguage;
     data['backdrop_path'] = this._backdropPath;
     data['overview'] = this._overview;
     //data['origin_country'] = this._originCountry;
     data['popularity'] = this._popularity;
-    data['media_type'] = this._mediaType;
-    data['video'] = this._video;
+    //data['media_type'] = this._mediaType;
+    //data['video'] = this._video;
     data['title'] = this._title;
     data['release_date'] = this._releaseDate;
     data['original_title'] = this._originalTitle;

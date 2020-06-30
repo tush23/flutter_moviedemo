@@ -12,7 +12,7 @@ class Constants {
   static const String loadingText = "Loading...";
   static const String tryagainText = "try again";
   static const String signInText = "Sign In";
-  static const String someErrorText = "error accured";
+  static const String someErrorText = "Error accured";
   static const String signInWithGoogleText = 'Sign in with Google';
   static const String somethingWentWrongText = "Some thing went wrong";
   static const String signOutText = "Sign out";
@@ -24,7 +24,7 @@ class Constants {
   static const String checkNetText = "Check Internet";
 
   static const String imgUrl = "https://image.tmdb.org/t/p/original/";
-
+  static const String imgUrlWidth200 = "https://image.tmdb.org/t/p/w200/";
 
   static const int app_version_code = 1;
   static const String app_color = "ffd7167";

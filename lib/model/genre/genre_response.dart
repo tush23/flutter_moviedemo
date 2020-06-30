@@ -2,11 +2,11 @@ import 'package:flutter_moviedemo/model/genre/genre_result.dart';
 
 class GenreResponse {
   List<GenresResults> _genres;
-  String _error;
+  String error;
 
-  Genre({List<GenresResults> genres,String error}) {
+  Genre({List<GenresResults> genres, String errorr}) {
     this._genres = genres;
-    this._error=_error;
+    this.error = errorr;
   }
 
   List<GenresResults> get genres => _genres;
@@ -28,5 +28,8 @@ class GenreResponse {
     }
     return data;
   }
-  GenreResponse.withError(String errorMsg):_genres=List(),_error=errorMsg;
+
+  GenreResponse.withError(String errorMsg)
+      :_genres=List(),
+        error=errorMsg;
 }

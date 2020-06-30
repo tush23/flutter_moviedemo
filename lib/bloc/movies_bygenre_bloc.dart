@@ -10,7 +10,12 @@ class MoviesListByGenres {
 
   getMoviesByGenres(id) async {
     MovieResponse genreResponse = await _movieRepository.getMoviesByGenre(id);
+    print("######getMoviesByGenres#####");
+    //print(genreResponse.results[3].originalTitle);
+
     _subject.sink.add(genreResponse);
+
+    print(_subject.stream);
   }
 
   void drainStream() {

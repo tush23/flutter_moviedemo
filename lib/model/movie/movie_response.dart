@@ -1,4 +1,3 @@
-
 import 'movie_results.dart';
 
 class MovieResponse {
@@ -8,7 +7,11 @@ class MovieResponse {
   int _totalResults;
   String error;
 
-  MovieResponse({int page, List<MovieResults> results, int totalPages, int totalResults,String error}) {
+  MovieResponse({int page,
+    List<MovieResults> results,
+    int totalPages,
+    int totalResults,
+    String error}) {
     this._page = page;
     this._results = results;
     this._totalPages = totalPages;
@@ -31,7 +34,10 @@ class MovieResponse {
       _results = new List<MovieResults>();
       json['results'].forEach((v) {
         _results.add(new MovieResults.fromJson(v));
+
+        //print(_results);
       });
+      print("****" + _results[3].originalTitle);
     }
     _totalPages = json['total_pages'];
     _totalResults = json['total_results'];
@@ -47,5 +53,8 @@ class MovieResponse {
     data['total_results'] = this._totalResults;
     return data;
   }
-  MovieResponse.withError(String errorMsg):_results=List(),error=errorMsg;
+
+  MovieResponse.withError(String errorMsg)
+      : _results = List(),
+        error = errorMsg;
 }

@@ -1,7 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_moviedemo/model/genre/genre_response.dart';
 import 'package:flutter_moviedemo/model/movie/movie_response.dart';
 import 'package:flutter_moviedemo/model/person/person_response.dart';
-import 'package:dio/dio.dart';
 
 class MovieRepository {
   static const String apiKey = '668135bda25e0f94b5bd4d8fa64c85cb';
@@ -33,7 +33,7 @@ class MovieRepository {
     var params = {"api_key": apiKey, "language": en_US, "page": 1};
     try {
       Response response =
-          await _dio.get(getPlayingUrl, queryParameters: params);
+      await _dio.get(getPlayingUrl, queryParameters: params);
       print("####getPlayingMovies####");
 
       print(response);
@@ -83,14 +83,14 @@ class MovieRepository {
       "with_genres": id
     };
     try {
-      Response response = await _dio.get(getpersonUrl, queryParameters: params);
-      print("####getMoviesByGenre####");
+      var response = await _dio.get(getMoviesUrl, queryParameters: params);
+      print("####getMoviesByGenre####==$id");
       print(response);
 
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception in Repo : $error stackTrace : $stacktrace");
-      return MovieResponse.withError(error);
+      return MovieResponse.withError(error.toString());
     }
   }
 }
