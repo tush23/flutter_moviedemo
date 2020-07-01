@@ -19,12 +19,13 @@ class Constants {
   static const String confirmText = "confirm";
   static const String supportNeededText = "Support Needed";
   static const String moreFeatureText = "More Features";
-  static const String featureReqText = "Feature Request";
+  static const String peopleOfTheWeekText = "People of the week";
   static const String updateNowText = "Update Now";
   static const String checkNetText = "Check Internet";
 
   static const String imgUrl = "https://image.tmdb.org/t/p/original/";
   static const String imgUrlWidth200 = "https://image.tmdb.org/t/p/w200/";
+  static const String imgUrlWidth300 = "https://image.tmdb.org/t/p/w300";
 
   static const int app_version_code = 1;
   static const String app_color = "ffd7167";

@@ -4,7 +4,8 @@ import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/constants/constants.dart';
 import 'package:flutter_moviedemo/model/genre/genre_response.dart';
 import 'package:flutter_moviedemo/model/genre/genre_result.dart';
-import 'package:flutter_moviedemo/ui/main/genre_list.dart';
+
+import 'genre_list.dart';
 
 class GenresScreen extends StatefulWidget {
   @override
@@ -72,13 +73,11 @@ class _GenresScreenState extends State<GenresScreen> {
 
   Widget _buildGenreWidget(GenreResponse data) {
     List<GenresResults> genres = data.genres;
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return genres == null
         ? Text("No Genres")
         : GenresList(
-      genre: genres,
-    );
+            genre: genres,
+          );
   }
 }

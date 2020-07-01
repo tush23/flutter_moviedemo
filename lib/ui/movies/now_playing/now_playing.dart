@@ -102,17 +102,14 @@ class _NowPlayingState extends State<NowPlaying> {
               return Stack(
                 children: <Widget>[
                   Container(
-                
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      shape: BoxShape.rectangle,
-
-                      image: DecorationImage(
+                        borderRadius: BorderRadius.circular(10),
+                        shape: BoxShape.rectangle,
+                        image: DecorationImage(
                           image: CachedNetworkImageProvider(
                               Constants.imgUrl + movies[index].backdropPath),
                           fit: BoxFit.fill,
-                          )
-                    ),
+                        )),
                     // child: CachedNetworkImage(
                     //   imageUrl: Constants.imgUrl + movies[index].backdropPath,
                     //   imageBuilder: (context, imageProvider) => Container(

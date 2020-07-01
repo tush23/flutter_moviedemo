@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/model/genre/genre_result.dart';
-import 'package:flutter_moviedemo/ui/main/genre_movies.dart';
+
+import 'genre_movies.dart';
 
 class GenresList extends StatefulWidget {
   final List<GenresResults> genre;
@@ -35,7 +36,7 @@ class _GenresListState extends State<GenresList>
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 350,
+        height: 300,
         child: DefaultTabController(
           length: genres.length,
           child: Scaffold(

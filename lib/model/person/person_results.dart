@@ -88,7 +88,8 @@ class KnownFor {
   String _backdropPath;
   String _originalLanguage;
   int _id;
-  double _voteAverage;
+
+  //double _voteAverage;
   String _overview;
   String _posterPath;
   bool _video;
@@ -102,7 +103,7 @@ class KnownFor {
       List<int> genreIds,
       String mediaType,
       String name,
-      List<String> originCountry,
+        //List<String> originCountry,
       int voteCount,
       String firstAirDate,
       String backdropPath,
@@ -120,13 +121,13 @@ class KnownFor {
     this._genreIds = genreIds;
     this._mediaType = mediaType;
     this._name = name;
-    this._originCountry = originCountry;
+    //this._originCountry = originCountry;
     this._voteCount = voteCount;
     this._firstAirDate = firstAirDate;
     this._backdropPath = backdropPath;
     this._originalLanguage = originalLanguage;
     this._id = id;
-    this._voteAverage = voteAverage;
+    //this._voteAverage = voteAverage;
     this._overview = overview;
     this._posterPath = posterPath;
     this._video = video;
@@ -144,9 +145,10 @@ class KnownFor {
   set mediaType(String mediaType) => _mediaType = mediaType;
   String get name => _name;
   set name(String name) => _name = name;
-  List<String> get originCountry => _originCountry;
-  set originCountry(List<String> originCountry) =>
-      _originCountry = originCountry;
+
+  // List<String> get originCountry => _originCountry;
+  // set originCountry(List<String> originCountry) =>
+  //     _originCountry = originCountry;
   int get voteCount => _voteCount;
   set voteCount(int voteCount) => _voteCount = voteCount;
   String get firstAirDate => _firstAirDate;
@@ -158,8 +160,9 @@ class KnownFor {
       _originalLanguage = originalLanguage;
   int get id => _id;
   set id(int id) => _id = id;
-  double get voteAverage => _voteAverage;
-  set voteAverage(double voteAverage) => _voteAverage = voteAverage;
+
+  // double get voteAverage => _voteAverage;
+  // set voteAverage(double voteAverage) => _voteAverage = voteAverage;
   String get overview => _overview;
   set overview(String overview) => _overview = overview;
   String get posterPath => _posterPath;
@@ -180,13 +183,13 @@ class KnownFor {
     _genreIds = json['genre_ids'].cast<int>();
     _mediaType = json['media_type'];
     _name = json['name'];
-    _originCountry = json['origin_country'].cast<String>();
+    //_originCountry = json['origin_country'].cast<String>();
     _voteCount = json['vote_count'];
     _firstAirDate = json['first_air_date'];
     _backdropPath = json['backdrop_path'];
     _originalLanguage = json['original_language'];
     _id = json['id'];
-    _voteAverage = json['vote_average'];
+    //_voteAverage = json['vote_average'];
     _overview = json['overview'];
     _posterPath = json['poster_path'];
     _video = json['video'];
@@ -202,13 +205,13 @@ class KnownFor {
     data['genre_ids'] = this._genreIds;
     data['media_type'] = this._mediaType;
     data['name'] = this._name;
-    data['origin_country'] = this._originCountry;
+    //data['origin_country'] = this._originCountry;
     data['vote_count'] = this._voteCount;
     data['first_air_date'] = this._firstAirDate;
     data['backdrop_path'] = this._backdropPath;
     data['original_language'] = this._originalLanguage;
     data['id'] = this._id;
-    data['vote_average'] = this._voteAverage;
+    //data['vote_average'] = this._voteAverage;
     data['overview'] = this._overview;
     data['poster_path'] = this._posterPath;
     data['video'] = this._video;

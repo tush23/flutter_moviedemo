@@ -5,14 +5,14 @@ class Person {
   int _totalPersonResults;
   int _totalPages;
   List<PersonResults> _results;
-  String _error;
+  String error;
 
   Person({int page,String error, int totalPersonResults, int totalPages, List<PersonResults> results}) {
     this._page = page;
     this._totalPersonResults = totalPersonResults;
     this._totalPages = totalPages;
     this._results = results;
-    this._error=error;
+    this.error = error;
   }
 
   int get page => _page;
@@ -46,5 +46,8 @@ class Person {
     }
     return data;
   }
-  Person.withError(String errroMsg):_results=List(),_error=errroMsg;
+
+  Person.withError(String errroMsg)
+      :_results=List(),
+        error=errroMsg;
 }
