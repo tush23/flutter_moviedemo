@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_moviedemo/bloc/movie_person_bloc.dart';
 import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/constants/constants.dart';
@@ -90,53 +91,63 @@ class _PersonListState extends State<PersonList> {
             itemBuilder: (context, index) {
               return Container(
                 padding: EdgeInsets.only(left: 5),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>
-                            ProfilePage(personId: person[index].id,)));
+                child: WillPopScope(
+                  onWillPop: () {
+                    timeDilation = 1;
+                    return Future.value(true);
                   },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      person[index].profilePath == null
-                          ? Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(EvaIcons.person),
-                      )
-                          : Container(
-                        width: 70,
-                        height: 70,
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProfilePage(
+                                    personId: person[index].id,
+                                  )));
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        person[index].profilePath == null
+                            ? Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            image: DecorationImage(
-                                image: CachedNetworkImageProvider(
-                                    Constants.imgUrlWidth200 +
-                                        person[index].profilePath),
-                                fit: BoxFit.cover)),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: 50,
-                        child: Text(
-                          person[index].name,
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 10,
                           ),
+                          child: Icon(EvaIcons.person),
+                        )
+                            : Container(
+                          width: 70,
+                          height: 70,
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                      Constants.imgUrlWidth200 +
+                                          person[index].profilePath),
+                                  fit: BoxFit.cover)),
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          alignment: Alignment.center,
+                          width: 50,
+                          child: Text(
+                            person[index].name,
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 10,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               );

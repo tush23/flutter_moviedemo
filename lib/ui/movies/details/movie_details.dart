@@ -80,12 +80,15 @@ class _MovieDetailState extends State<MovieDetail> {
           ),
           slivers: <Widget>[
             SliverAppBar(
-              brightness: Brightness.dark,
+              brightness: ConfigerBloc().darkModeOn
+                  ? Brightness.dark
+                  : Brightness.light,
               pinned: true,
               stretch: true,
               //floating: true,
               expandedHeight: 490,
               flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.only(top: 7, bottom: 5),
                 title: Container(
                   width: size.width / 2,
                   child: Text(
@@ -108,44 +111,44 @@ class _MovieDetailState extends State<MovieDetail> {
                               fit: BoxFit.cover)),
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom: 72),
+                      margin: EdgeInsets.only(bottom: size.height / 14),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(colors: [
-                        ConfigerBloc().darkModeOn
-                            ? Colors.black.withOpacity(0.9)
-                            : Colors.white.withOpacity(0.9),
-                        ConfigerBloc().darkModeOn
-                            ? Colors.black.withOpacity(0.0)
-                            : Colors.white.withOpacity(0.0)
-                      ], begin: Alignment.bottomCenter, end: Alignment.center)),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 72),
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [
                             ConfigerBloc().darkModeOn
-                                ? Colors.black.withOpacity(0.6)
-                                : Colors.white.withOpacity(0.6),
+                                ? Colors.black.withOpacity(0.9)
+                                : Colors.white.withOpacity(0.9),
                             ConfigerBloc().darkModeOn
                                 ? Colors.black.withOpacity(0.0)
                                 : Colors.white.withOpacity(0.0)
-                          ],
+                          ], begin: Alignment.bottomCenter, end: Alignment.center)),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: size.height / 14),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                                ConfigerBloc().darkModeOn
+                                    ? Colors.black.withOpacity(0.6)
+                                    : Colors.white.withOpacity(0.6),
+                                ConfigerBloc().darkModeOn
+                                    ? Colors.black.withOpacity(0.0)
+                                    : Colors.white.withOpacity(0.0)
+                              ],
                               begin: Alignment.bottomRight,
                               end: Alignment.centerRight)),
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom: 72),
+                      margin: EdgeInsets.only(bottom: size.height / 14),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                               colors: [
-                            ConfigerBloc().darkModeOn
-                                ? Colors.black.withOpacity(0.6)
-                                : Colors.white.withOpacity(0.6),
-                            ConfigerBloc().darkModeOn
-                                ? Colors.black.withOpacity(0.0)
-                                : Colors.white.withOpacity(0.0)
-                          ],
+                                ConfigerBloc().darkModeOn
+                                    ? Colors.black.withOpacity(0.6)
+                                    : Colors.white.withOpacity(0.6),
+                                ConfigerBloc().darkModeOn
+                                    ? Colors.black.withOpacity(0.0)
+                                    : Colors.white.withOpacity(0.0)
+                              ],
                               begin: Alignment.bottomLeft,
                               end: Alignment.centerLeft)),
                     )

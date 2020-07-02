@@ -5,6 +5,7 @@ import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/constants/constants.dart';
 import 'package:flutter_moviedemo/model/cast/cast_response.dart';
 import 'package:flutter_moviedemo/model/cast/cast_results.dart';
+import 'package:flutter_moviedemo/ui/people/profile.dart';
 
 class MovieDetailsCasts extends StatefulWidget {
   final int id;
@@ -93,31 +94,42 @@ class _MovieDetailsCastsState extends State<MovieDetailsCasts> {
           itemBuilder: (context, index) {
             return Container(
               padding: EdgeInsets.only(right: 18),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    //margin: EdgeInsets.only(right: 15),
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: CachedNetworkImageProvider(
-                                Constants.imgUrlWidth300 +
-                                    cast[index].profilePath),
-                            fit: BoxFit.cover)),
-                  ),
-                  Text(
-                    cast[index].name,
-                    style: TextStyle(fontSize: 12),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    cast[index].character,
-                    style: TextStyle(fontSize: 10, color: Colors.grey),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ProfilePage(
+                                personId: cast[index].id,
+                              )));
+                },
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      //margin: EdgeInsets.only(right: 15),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: CachedNetworkImageProvider(
+                                  Constants.imgUrlWidth300 +
+                                      cast[index].profilePath),
+                              fit: BoxFit.cover)),
+                    ),
+                    Text(
+                      cast[index].name,
+                      style: TextStyle(fontSize: 12),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      cast[index].character,
+                      style: TextStyle(fontSize: 10, color: Colors.grey),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             );
           }),

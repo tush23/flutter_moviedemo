@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_moviedemo/bloc/movie_person_details_bloc.dart';
 import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/constants/constants.dart';
@@ -23,7 +24,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     personDetailsBloc..getPersonDetails(personId);
   }
@@ -93,76 +93,84 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
 
       //title: personResults.name,
-      body: Container(
-        color: ConfigerBloc().darkModeOn ? Colors.black : Colors.white,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Stack(
+      body: WillPopScope(
+        onWillPop: () {
+          timeDilation = 4;
+          return Future.value(true);
+        },
+        child: Hero(tag: "hero",
+          child: Container(
+            color: ConfigerBloc().darkModeOn ? Colors.black : Colors.white,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        shape: BoxShape.rectangle,
-                        image: DecorationImage(
-                          image: CachedNetworkImageProvider(
-                              Constants.imgUrl + person.profilePath),
-                          fit: BoxFit.cover,
-                        )),
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        width: double.infinity,
+                        height: 300,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            shape: BoxShape.rectangle,
+                            image: DecorationImage(
+                              image: CachedNetworkImageProvider(
+                                  Constants.imgUrl + person.profilePath),
+                              fit: BoxFit.cover,
+                            )),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                                ConfigerBloc().darkModeOn
+                                    ? Colors.black.withOpacity(1.0)
+                                    : Colors.white.withOpacity(1.0),
+                                ConfigerBloc().darkModeOn
+                                    ? Colors.black.withOpacity(0.0)
+                                    : Colors.white.withOpacity(0.0)
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.center,
+                              stops: [0.0, 0.9]),
+                        ),
+                      ),
+                    ],
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            ConfigerBloc().darkModeOn
-                                ? Colors.black.withOpacity(1.0)
-                                : Colors.white.withOpacity(1.0),
-                            ConfigerBloc().darkModeOn
-                                ? Colors.black.withOpacity(0.0)
-                                : Colors.white.withOpacity(0.0)
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.center,
-                          stops: [0.0, 0.9]),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: TitleDescWidget(
+                      title: "About",
+                      description: person.biography.toString(),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: TitleDescWidget(
+                      title: "Birthday",
+                      description: person.birthday.toString(),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: TitleDescWidget(
+                      title: "Birth Place",
+                      description: person.placeOfBirth.toString(),
+                    ),
+                  )
+
+                  // Image(
+                  //   image: CachedNetworkImageProvider(
+                  //       Constants.imgUrl + personResults.profilePath),
+                  //   height: size.height / 2.5,
+                  //   width: double.infinity,
+                  //   fit: BoxFit.cover,
+                  // )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TitleDescWidget(
-                  title: "About",
-                  description: person.biography.toString(),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TitleDescWidget(
-                  title: "Birthday",
-                  description: person.birthday.toString(),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TitleDescWidget(
-                  title: "Birth Place",
-                  description: person.placeOfBirth.toString(),
-                ),
-              )
-
-              // Image(
-              //   image: CachedNetworkImageProvider(
-              //       Constants.imgUrl + personResults.profilePath),
-              //   height: size.height / 2.5,
-              //   width: double.infinity,
-              //   fit: BoxFit.cover,
-              // )
-            ],
+            ),
           ),
         ),
       ),
