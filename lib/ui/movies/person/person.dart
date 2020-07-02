@@ -6,6 +6,7 @@ import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/constants/constants.dart';
 import 'package:flutter_moviedemo/model/person/person_response.dart';
 import 'package:flutter_moviedemo/model/person/person_results.dart';
+import 'package:flutter_moviedemo/ui/people/profile.dart';
 
 class PersonList extends StatefulWidget {
   @override
@@ -89,47 +90,54 @@ class _PersonListState extends State<PersonList> {
             itemBuilder: (context, index) {
               return Container(
                 padding: EdgeInsets.only(left: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    person[index].profilePath == null
-                        ? Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(EvaIcons.person),
-                          )
-                        : Container(
-                            width: 70,
-                            height: 70,
-                            margin: EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: CachedNetworkImageProvider(
-                                        Constants.imgUrlWidth200 +
-                                            person[index].profilePath),
-                                    fit: BoxFit.cover)),
-                          ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 50,
-                      child: Text(
-                        person[index].name,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 10,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>
+                            ProfilePage(personId: person[index].id,)));
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      person[index].profilePath == null
+                          ? Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
                         ),
+                        child: Icon(EvaIcons.person),
+                      )
+                          : Container(
+                        width: 70,
+                        height: 70,
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: CachedNetworkImageProvider(
+                                    Constants.imgUrlWidth200 +
+                                        person[index].profilePath),
+                                fit: BoxFit.cover)),
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        width: 50,
+                        child: Text(
+                          person[index].name,
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 10,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             },

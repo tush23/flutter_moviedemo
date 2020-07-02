@@ -5,6 +5,7 @@ import 'package:flutter_moviedemo/configer/index.dart';
 import 'package:flutter_moviedemo/model/movie_details/movie_details_response.dart';
 import 'package:flutter_moviedemo/ui/movies/details/movie_details_casts.dart';
 import 'package:flutter_moviedemo/ui/movies/similer/similer_movies.dart';
+import 'package:flutter_moviedemo/ui/required/title_description.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class MovieDetailsDescription extends StatefulWidget {
@@ -235,34 +236,4 @@ class BorderTagWidget extends StatelessWidget {
   }
 }
 
-class TitleDescWidget extends StatelessWidget {
-  final String title;
-  final String description;
 
-  const TitleDescWidget({
-    Key key,
-    this.title,
-    this.description,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          title,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-        ),
-        SizedBox(
-          height: 6,
-        ),
-        Text(
-          description,
-          style: TextStyle(
-              color: ConfigerBloc().darkModeOn ? Colors.grey : Colors.black87),
-        )
-      ],
-    );
-  }
-}
