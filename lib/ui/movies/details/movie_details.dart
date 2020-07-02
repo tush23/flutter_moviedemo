@@ -6,6 +6,7 @@ import 'package:flutter_moviedemo/constants/constants.dart';
 import 'package:flutter_moviedemo/model/movie/movie_results.dart';
 import 'package:flutter_moviedemo/model/movie_details/movie_details_response.dart';
 import 'package:flutter_moviedemo/ui/movies/details/movie_details_desc.dart';
+import 'package:flutter_moviedemo/ui/video/video_player/video_player.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
@@ -234,7 +235,10 @@ class _MovieDetailState extends State<MovieDetail> {
             height: 15,
           ),
           FloatingActionButton(
-            onPressed: null,
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => VideoPlayerScreen(id: data.id,)));
+            },
             backgroundColor: paletteColor,
             child: Icon(
               Icons.play_arrow,
