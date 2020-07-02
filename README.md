@@ -1,16 +1,17 @@
 # flutter_moviedemo
 
-A new Flutter project.
+A new Flutter movie Info app that implemented in Rx Dart and Bloc Pattern.
 
-## Getting Started
+# APi used 
+https://www.themoviedb.org/
 
-This project is a starting point for a Flutter application.
+# Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+Home           |  Info
+:-------------------------:|:-------------------------:
+![home](https://user-images.githubusercontent.com/27426529/86329405-bd2f4f80-bc63-11ea-808d-18affce3d3e9.png)  |  ![info](https://user-images.githubusercontent.com/27426529/86329045-41350780-bc63-11ea-8c3a-daf688273af4.png)
+Home(Light) |  Info(Light)
+![home_light](https://user-images.githubusercontent.com/27426529/86329545-efd94800-bc63-11ea-8ecb-6e65042d67dd.png)  |  ![info_light](https://user-images.githubusercontent.com/27426529/86329516-e5b74980-bc63-11ea-8bf4-644dacb5edf1.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
